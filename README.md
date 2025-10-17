@@ -24,7 +24,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 #### Installation
 
-1.  Clone the repository (please replace with your own repository URL):
+1.  Clone the repository :
     ```sh
     git clone https://github.com/randomwalk0101/crytoplace.git
     ```
@@ -114,7 +114,7 @@ Siga estas instruções para obter uma cópia do projeto em funcionamento na sua
 
 #### 安装
 
-1.  克隆仓库 (请替换为您自己的仓库地址):
+1.  克隆仓库 :
     ```sh
     git clone https://github.com/randomwalk0101/crytoplace.git
     ```
@@ -159,7 +159,7 @@ npm run dev
 
 #### 安裝
 
-1.  複製儲存庫 (請替換為您自己的儲存庫位址):
+1.  複製儲存庫 :
     ```sh
     git clone https://github.com/randomwalk0101/crytoplace.git
     ```
