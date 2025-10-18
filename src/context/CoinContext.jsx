@@ -6,7 +6,7 @@ export const CoinContext = createContext();
 const CoinContextProvider = (props) => {
   const [allCoin, setAllCoin] = useState([]);
   const [currency, setCurrency] = useState({
-    name: "USD",
+    name: "usd",
     symbol: "$",
   });
 
