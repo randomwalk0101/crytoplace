@@ -1,10 +1,30 @@
 
-    import React, { useContext } from 'react'
+    import React, { useContext, useState, useEffect } from 'react'
     import './Home.css'
     import { CoinContext } from '../../context/CoinContext'
     
+    
     const Home = () => {
       const {allCoin, currency} = useContext(CoinContext);
+      const [displayCoins, setDisplayCoins] = useState([]);
+      const[input, setInput] = useState("");
+      const inputHandler = (event) =>{
+            setInput(event.target.value);
+            if(event.target.value === ""){
+              setDisplayCoins(allCoin);
+            }
+      }
+      const searchHandler = async (event) =>{
+            event.preventDefault();
+            const coins = allCoin.filter((item) =>{
+                return item.name.toLowerCase().includes(input.toLowerCase());
+            });
+            setDisplayCoins(coins);
+      }
+
+      useEffect(() => {
+        setDisplayCoins(allCoin);
+      }, [allCoin])
 
       return (
         <div className='home'>
@@ -12,8 +32,19 @@
             <h1>Largest <br/> Crypto Marketplace</h1>
             <p>Welcome to the world's largest cryptocurrency 
               marketplace. Sign up to explore more about cryptos.</p>
-             <form>
-              <input type="text" placeholder='Search crypto...' />
+             <form onSubmit={searchHandler}>
+              <input onChange={inputHandler} list='coinlist' value={input} type="text" placeholder='Search crypto...'  required/>
+             
+             <datalist id='coinlist'>
+
+              {allCoin.map((item, index)=>(
+                <option key={index} value={item.name}/>
+              ))
+              }
+             </datalist>
+             
+             
+             
               <button type='submit'>Search</button>
 
 
@@ -30,7 +61,7 @@
             
            </div>
            {
-            allCoin.map((item, index)=>(
+            displayCoins.map((item, index)=>(
               <div className="table-layout" key={index}>
                 <p>{item.market_cap_rank}</p>
                 <div>
