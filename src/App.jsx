@@ -5,7 +5,7 @@ import Home from './pages/home/Home';
 import Coin from './pages/coin/Coin';
 
 
-import Footer from './components/footer/Footer';
+import { Footer } from './components/footer/Footer';
 
 
 
